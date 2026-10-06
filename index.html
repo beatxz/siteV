@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Sistemas &amp; Soluções Digitais | Sites, Landing Pages e Soluções Web</title>
+<meta name="description" content="Criamos sites, landing pages, cardápios digitais e soluções web personalizadas para negócios que querem fortalecer sua presença digital.">
+<meta property="og:title" content="Sistemas &amp; Soluções Digitais | Sites, Landing Pages e Soluções Web">
+<meta property="og:description" content="Criamos sites, landing pages, cardápios digitais e soluções web personalizadas para negócios que querem fortalecer sua presença digital.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500&amp;family=Geist+Mono:wght@400&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+html{scroll-behavior:smooth}
+body{margin:0;background:#F2EEE5;color:#151512;font-family:'Geist',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+*{box-sizing:border-box}
+a{color:inherit;text-decoration:none}
+a:hover{color:inherit}
+::selection{background:#151512;color:#F2EEE5}
+:focus-visible{outline:2px solid #7E9A62;outline-offset:3px}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+</style>
+</helmet>
+<div ref="{{ rootRef }}" style="background:#F2EEE5; color:#151512; overflow-x:clip; position:relative;">
+
+<header style="position:fixed; top:0; left:0; right:0; z-index:50; display:flex; justify-content:center; padding:14px clamp(12px,2vw,24px); pointer-events:none;">
+  <div data-nav-pill style="pointer-events:auto; width:100%; max-width:1440px; display:flex; align-items:center; justify-content:space-between; gap:24px; padding:10px 0; border-radius:999px; border:1px solid transparent; transition:max-width .7s cubic-bezier(.16,1,.3,1), background-color .5s, padding .5s, color .4s, border-color .5s;">
+    <a href="#inicio" aria-label="Sistemas &amp; Soluções Digitais — início" style="display:flex; flex-direction:column; font-size:14px; line-height:1.05; font-weight:500; letter-spacing:-.01em;">
+      <span>Sistemas <span style="font-family:'Instrument Serif',serif; font-style:italic; font-size:17px; font-weight:400;">&amp;</span></span>
+      <span>Soluções Digitais</span>
+    </a>
+    <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
+      <nav aria-label="Principal" style="display:flex; gap:30px; font-size:14px;">
+        <a href="#inicio" style="padding:4px 0; background:linear-gradient(currentColor,currentColor) 0 100% / 0% 1px no-repeat; transition:background-size .4s cubic-bezier(.16,1,.3,1);" style-hover="background-size:100% 1px;">Início</a>
+        <a href="#solucoes" style="padding:4px 0; background:linear-gradient(currentColor,currentColor) 0 100% / 0% 1px no-repeat; transition:background-size .4s cubic-bezier(.16,1,.3,1);" style-hover="background-size:100% 1px;">Soluções</a>
+        <a href="#projetos" style="padding:4px 0; background:linear-gradient(currentColor,currentColor) 0 100% / 0% 1px no-repeat; transition:background-size .4s cubic-bezier(.16,1,.3,1);" style-hover="background-size:100% 1px;">Projetos</a>
+        <a href="#processo" style="padding:4px 0; background:linear-gradient(currentColor,currentColor) 0 100% / 0% 1px no-repeat; transition:background-size .4s cubic-bezier(.16,1,.3,1);" style-hover="background-size:100% 1px;">Processo</a>
+        <a href="#sobre" style="padding:4px 0; background:linear-gradient(currentColor,currentColor) 0 100% / 0% 1px no-repeat; transition:background-size .4s cubic-bezier(.16,1,.3,1);" style-hover="background-size:100% 1px;">Sobre</a>
+        <a href="#contato" style="padding:4px 0; background:linear-gradient(currentColor,currentColor) 0 100% / 0% 1px no-repeat; transition:background-size .4s cubic-bezier(.16,1,.3,1);" style-hover="background-size:100% 1px;">Contato</a>
+      </nav>
+      <a href="{{ wa }}" target="_blank" rel="noopener" data-mag style="display:flex; align-items:center; gap:3px; transition:transform .45s cubic-bezier(.2,.8,.2,1);">
+        <span data-nav-cta style="background:#151512; color:#F2EEE5; padding:11px 18px; border-radius:999px; font-size:14px; font-weight:500; transition:background-color .4s, color .4s;">Solicitar orçamento</span>
+        <span data-nav-cta style="width:40px; height:40px; border-radius:50%; background:#151512; color:#F2EEE5; display:grid; place-items:center; font-size:15px; transition:background-color .4s, color .4s;">↗</span>
+      </a>
+    </sc-if>
+    <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+      <button onClick="{{ openMenu }}" aria-label="Abrir menu" aria-expanded="{{ menuOpen }}" style="display:flex; align-items:center; gap:10px; background:none; border:0; color:inherit; font:inherit; font-size:14px; padding:10px 6px; cursor:pointer;">
+        <span>Menu</span>
+        <span style="display:flex; flex-direction:column; gap:5px;"><span style="width:22px; height:1px; background:currentColor;"></span><span style="width:14px; height:1px; background:currentColor; align-self:flex-end;"></span></span>
+      </button>
+    </sc-if>
+  </div>
+</header>
+<sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+  <div role="dialog" aria-modal="true" aria-label="Menu" style="position:fixed; inset:0; z-index:60; background:#121310; color:#F2EEE5; display:flex; flex-direction:column; padding:22px 24px 28px;">
+    <div style="display:flex; justify-content:space-between; align-items:center;">
+      <span style="font-family:'Geist Mono',monospace; font-size:12px; letter-spacing:.08em; text-transform:uppercase; opacity:.7;">Navegação</span>
+      <button onClick="{{ closeMenu }}" aria-label="Fechar menu" style="background:none; border:1px solid rgba(242,238,229,.25); color:inherit; font:inherit; font-size:14px; padding:10px 18px; border-radius:999px; cursor:pointer;">Fechar</button>
+    </div>
+    <nav aria-label="Menu móvel" style="display:flex; flex-direction:column; margin-top:auto; margin-bottom:auto;">
+      <a href="#inicio" onClick="{{ closeMenu }}" style="display:flex; align-items:baseline; gap:16px; padding:12px 0; border-bottom:1px solid rgba(242,238,229,.12); font-size:42px; letter-spacing:-.04em; font-weight:300;"><span style="font-family:'Geist Mono',monospace; font-size:12px; opacity:.6;">01</span>Início</a>
+      <a href="#solucoes" onClick="{{ closeMenu }}" style="display:flex; align-items:baseline; gap:16px; padding:12px 0; border-bottom:1px solid rgba(242,238,229,.12); font-size:42px; letter-spacing:-.04em; font-weight:300;"><span style="font-family:'Geist Mono',monospace; font-size:12px; opacity:.6;">02</span>Soluções</a>
+      <a href="#projetos" onClick="{{ closeMenu }}" style="display:flex; align-items:baseline; gap:16px; padding:12px 0; border-bottom:1px solid rgba(242,238,229,.12); font-size:42px; letter-spacing:-.04em; font-weight:300;"><span style="font-family:'Geist Mono',monospace; font-size:12px; opacity:.6;">03</span>Projetos</a>
+      <a href="#processo" onClick="{{ closeMenu }}" style="display:flex; align-items:baseline; gap:16px; padding:12px 0; border-bottom:1px solid rgba(242,238,229,.12); font-size:42px; letter-spacing:-.04em; font-weight:300;"><span style="font-family:'Geist Mono',monospace; font-size:12px; opacity:.6;">04</span>Processo</a>
+      <a href="#sobre" onClick="{{ closeMenu }}" style="display:flex; align-items:baseline; gap:16px; padding:12px 0; border-bottom:1px solid rgba(242,238,229,.12); font-size:42px; letter-spacing:-.04em; font-weight:300;"><span style="font-family:'Geist Mono',monospace; font-size:12px; opacity:.6;">05</span>Sobre</a>
+      <a href="#contato" onClick="{{ closeMenu }}" style="display:flex; align-items:baseline; gap:16px; padding:12px 0; font-size:42px; letter-spacing:-.04em; font-weight:300;"><span style="font-family:'Geist Mono',monospace; font-size:12px; opacity:.6;">06</span>Contato</a>
+    </nav>
+    <a href="{{ wa }}" target="_blank" rel="noopener" style="display:flex; justify-content:space-between; align-items:center; background:#F2EEE5; color:#151512; padding:20px 24px; border-radius:999px; font-size:16px; font-weight:500;"><span>Solicitar orçamento</span><span>↗</span></a>
+  </div>
+</sc-if>
+
+<section id="inicio" data-hero data-sec="01 — Início" style="position:relative; height:200vh;">
+  <div data-hero-sticky style="position:sticky; top:0; height:100vh; min-height:560px; overflow:hidden; display:flex; flex-direction:column;">
+    <div style="position:relative; flex:1; display:flex; flex-direction:column; width:100%; max-width:1552px; margin:0 auto; padding:clamp(84px,12vh,128px) clamp(20px,4vw,56px) clamp(14px,2vw,24px);">
+      <div data-hero-text style="display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:28px 56px; will-change:transform,opacity;">
+        <div style="flex:1 1 400px; min-width:0;">
+          <div style="display:flex; align-items:center; gap:10px; font-family:'Geist Mono',monospace; font-size:12px; letter-spacing:.08em; text-transform:uppercase;">
+            <span style="width:7px; height:7px; border-radius:50%; background:#7E9A62;"></span>
+            <span>Estúdio de presença digital</span>
+          </div>
+          <h1 style="margin:20px 0 0; font-size:clamp(40px,min(7.2vw,11vh),124px); line-height:.94; letter-spacing:-.05em; font-weight:400; text-wrap:balance;">Seu negócio merece uma presença digital <em style="font-family:'Instrument Serif',serif; font-style:italic; font-weight:400; letter-spacing:-.02em;">à altura.</em></h1>
+        </div>
+        <div style="flex:0 1 300px; display:flex; flex-direction:column; gap:20px; padding-bottom:10px;">
+          <p style="margin:0; font-size:16px; line-height:1.55; opacity:.72; text-wrap:pretty;">Criamos sites, landing pages, cardápios digitais e soluções personalizadas para transformar a presença digital de negócios.</p>
+          <div style="display:flex; flex-wrap:wrap; align-items:center; gap:14px 24px;">
+            <a href="{{ wa }}" target="_blank" rel="noopener" data-mag style="display:inline-flex; align-items:center; gap:3px; transition:transform .45s cubic-bezier(.2,.8,.2,1);">
+              <span style="background:#151512; color:#F2EEE5; padding:14px 22px; border-radius:999px; font-size:15px; font-weight:500;">Solicitar orçamento</span>
+              <span style="width:48px; height:48px; border-radius:50%; background:#151512; color:#F2EEE5; display:grid; place-items:center; font-size:16px;">→</span>
+            </a>
+            <a href="#solucoes" style="font-size:15px; padding:4px 0; background:linear-gradient(currentColor,currentColor) 0 100% / 100% 1px no-repeat; transition:background-size .4s cubic-bezier(.16,1,.3,1);" style-hover="background-size:30% 1px;">Conhecer soluções</a>
+          </div>
+        </div>
+      </div>
+      <div data-hero-slot style="position:relative; flex:1; min-height:140px; margin-top:clamp(20px,4vh,56px);">
+        <div data-hero-float data-speed="1.15" data-rot="-2" style="position:absolute; z-index:3; right:5%; top:-52px; width:clamp(240px,30vw,470px); aspect-ratio:16/10; background:#FAF8F3; border-radius:12px; overflow:hidden; box-shadow:0 40px 80px -30px rgba(10,10,8,.45); transform:rotate(-2deg); display:{{ heroBrowser }}; will-change:transform;">
+          <div style="height:30px; display:flex; align-items:center; gap:6px; padding:0 12px; border-bottom:1px solid rgba(21,21,18,.08);">
+            <span style="width:8px; height:8px; border-radius:50%; background:#D9D4C8;"></span>
+            <span style="width:8px; height:8px; border-radius:50%; background:#D9D4C8;"></span>
+            <span style="width:8px; height:8px; border-radius:50%; background:#D9D4C8;"></span>
+            <span style="margin-left:12px; font-family:'Geist Mono',monospace; font-size:10px; color:#6E695F; background:#EFEBE2; padding:3px 10px; border-radius:999px;">seunegocio.com.br</span>
+          </div>
+          <div style="position:absolute; inset:30px 0 0; background-color:#E8E3D8; background-image:repeating-linear-gradient(135deg, rgba(21,21,18,.07) 0 1px, transparent 1px 12px); display:flex; align-items:flex-end; padding:14px;">
+            <img src="assets/hero/browser.png" alt="Exemplo de site em navegador" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:left top;">
+          </div>
+        </div>
+        <div data-hero-float data-speed="1.7" data-rot="4" style="position:absolute; z-index:3; right:{{ phoneRight }}; top:{{ phoneTop }}; width:clamp(104px,9vw,150px); aspect-ratio:9/19; background:#151512; border-radius:24px; padding:6px; box-shadow:0 40px 80px -30px rgba(10,10,8,.5); transform:rotate(4deg); will-change:transform;">
+          <div style="width:100%; height:100%; border-radius:18px; overflow:hidden; background:#E8E3D8;">
+            <img src="assets/hero/mobile.png" alt="Exemplo de site no celular" style="width:100%; height:100%; object-fit:cover; object-position:center top; display:block;">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div data-hero-card style="position:absolute; inset:0; z-index:2; background:#0A0A0A; color:#F2EEE5; overflow:hidden; clip-path:inset(62% 4% 2% 4% round 20px); will-change:clip-path;">
+      <div data-hero-media style="position:absolute; inset:0; background-color:#0A0A0A; will-change:transform;">
+      </div>
+      <div data-hero-cap style="position:absolute; left:0; right:0; top:clamp(96px,14vh,140px); padding:0 clamp(36px,6.5vw,92px); opacity:0;">
+        <p style="margin:0; text-align:left; font-size:clamp(32px,4.6vw,76px); line-height:1; letter-spacing:-.045em; font-weight:300; max-width:15ch; text-wrap:balance;">Design, desenvolvimento e estratégia <em style="font-family:'Instrument Serif',serif; font-style:italic; font-weight:400; letter-spacing:-.02em;">no mesmo lugar.</em></p>
+      </div>
+      <div style="position:absolute; left:0; right:0; bottom:clamp(30px,4vw,46px); padding:0 clamp(36px,6.5vw,92px); display:flex; flex-wrap:wrap; justify-content:space-between; align-items:flex-end; gap:12px 24px; font-family:'Geist Mono',monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase;">
+        <div style="display:flex; flex-wrap:wrap; gap:8px 26px;">
+          <span><span style="opacity:.55;">01</span> Sites</span>
+          <span><span style="opacity:.55;">02</span> Landing pages</span>
+          <span><span style="opacity:.55;">03</span> Cardápios</span>
+          <span><span style="opacity:.55;">04</span> Sistemas</span>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-sec="02 — Abordagem" style="padding:clamp(120px,22vh,240px) 0 clamp(100px,16vh,180px);">
+  <div style="max-width:1440px; margin:0 auto; padding:0 clamp(20px,4vw,56px); display:flex; flex-wrap:wrap; gap:32px 48px;">
+    <div style="flex:0 0 220px; font-family:'Geist Mono',monospace; font-size:12px; letter-spacing:.08em; text-transform:uppercase; padding-top:14px;">Nossa abordagem — 01</div>
+    <div style="flex:1 1 560px; min-width:0;">
+      <h2 data-intro style="margin:0; font-size:clamp(34px,4.8vw,80px); line-height:1.02; letter-spacing:-.045em; font-weight:400; text-wrap:balance;"><span data-w>Não</span> <span data-w>criamos</span> <span data-w>apenas</span> <span data-w>páginas.</span> <span data-w>Criamos</span> <span data-w>a</span> <span data-w>presença</span> <span data-w>digital</span> <span data-w style="font-family:'Instrument Serif',serif; font-style:italic; letter-spacing:-.02em;">do</span> <span data-w style="font-family:'Instrument Serif',serif; font-style:italic; letter-spacing:-.02em;">seu</span> <span data-w style="font-family:'Instrument Serif',serif; font-style:italic; letter-spacing:-.02em;">negócio.</span></h2>
+      <div style="display:flex; flex-wrap:wrap; gap:32px 56px; margin-top:clamp(48px,8vh,88px);">
+        <p data-rv="up" style="flex:1 1 320px; max-width:440px; margin:0; font-size:17px; line-height:1.6; opacity:.72; text-wrap:pretty;">Cada projeto começa entendendo quem é o seu negócio, com quem ele fala e o que precisa acontecer quando alguém chega até ele. A partir daí, desenhamos a experiência.</p>
+        <div data-rv="up" data-delay="120" style="flex:1 1 260px; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px 24px; font-family:'Geist Mono',monospace; font-size:12px; letter-spacing:.06em; text-transform:uppercase;">
+          <div style="display:flex; flex-direction:column; gap:10px;"><span style="height:1px; background:currentColor; opacity:.25;"></span><span>Identidade</span></div>
+          <div style="display:flex; flex-direction:column; gap:10px;"><span style="height:1px; background:currentColor; opacity:.25;"></span><span>Público</span></div>
+          <div style="display:flex; flex-direction:column; gap:10px;"><span style="height:1px; background:currentColor; opacity:.25;"></span><span>Objetivo</span></div>
+          <div style="display:flex; flex-direction:column; gap:10px;"><span style="height:1px; background:currentColor; opacity:.25;"></span><span>Experiência</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="solucoes" data-sec="03 — Soluções" style="padding:clamp(40px,8vh,100px) 0 clamp(80px,14vh,160px);">
+  <div style="max-width:1440px; margin:0 auto; padding:0 clamp(20px,4vw,56px); display:flex; flex-wrap:wrap; gap:24px clamp(32px,6vw,96px);">
+    <div style="flex:1 1 360px; min-width:0;">
+      <div style="position:{{ svcPos }}; top:14vh; display:flex; flex-direction:column; gap:28px;">
+        <span style="font-family:'Geist Mono',monospace; font-size:12px; letter-spacing:.08em; text-transform:uppercase;">Nossas soluções — 02</span>
+        <h2 style="margin:0; font-size:clamp(36px,4.4vw,72px); line-height:.98; letter-spacing:-.045em; font-weight:400;">
+          <span style="display:block; overflow:hidden; padding-bottom:.06em;"><span data-rv="mask" style="display:block;">Soluções pensadas</span></span>
+          <span style="display:block; overflow:hidden; padding-bottom:.1em;"><span data-rv="mask" data-delay="90" style="display:block; font-family:'Instrument Serif',serif; font-style:italic; letter-spacing:-.02em;">para cada negócio.</span></span>
+        </h2>
+        <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
+          <div style="display:flex; align-items:flex-end; gap:18px; margin-top:12px;">
+            <div style="overflow:hidden;"><span data-svc-num style="display:block; font-size:clamp(96px,11vw,190px); line-height:.82; letter-spacing:-.07em; font-weight:300;">01</span></div>
+            <div style="display:flex; flex-direction:column; gap:10px; padding-bottom:10px;">
+              <span style="font-family:'Geist Mono',monospace; font-size:12px; letter-spacing:.08em;">/ 06</span>
+              <div style="width:1px; height:64px; background:rgba(21,21,18,.15); position:relative;"><div data-svc-bar style="position:absolute; inset:0; background:#151512; transform-origin:top; transform:scaleY(.1667); transition:transform .6s cubic-bezier(.16,1,.3,1);"></div></div>
+            </div>
+          </div>
+          
+        </sc-if>
+      </div>
+    </div>
+    <div style="flex:1.3 1 520px; min-width:0;">
+      <article data-svc data-vis="[ visual — landing pages ]" data-img="assets/projects/doces-da-le-cover.png" data-pos="center top" style="position:relative; padding:clamp(40px,9vh,96px) 0; transition:opacity .6s ease;">
+        <div data-rv="line" style="position:absolute; top:0; left:0; right:0; height:1px; background:currentColor; opacity:.25;"></div>
+        <span style="font-family:'Geist Mono',monospace; font-size:12px; letter-spacing:.08em;">01</span>
+        <h3 style="margin:20px 0 18px; font-size:clamp(34px,4.6vw,74px); line-height:.98; letter-spacing:-.045em; font-weight:400;">Landing pages</h3>
+        <p style="margin:0; max-width:470px; font-size:17px; line-height:1.6; opacity:.7; text-wrap:pretty;">Páginas estratégicas para apresentar serviços, produtos, campanhas e transformar visitantes em contatos.</p>
+      <div style="margin-top:36px; max-width:580px; aspect-ratio:16/10; border-radius:14px; overflow:hidden; background:#E8E3D8; box-shadow:0 30px 60px -36px rgba(21,21,18,.35);"><img src="assets/projects/doces-da-le-cover.png" alt="Exemplo visual de landing pages" loading="lazy" style="display:block; width:100%; height:100%; object-fit:cover; object-position:center top;"></div>
+      </article>
+      <article data-svc data-vis="[ visual — sites institucionais ]" data-img="assets/services/institucional.png" data-pos="center top" style="position:relative; padding:clamp(40px,9vh,96px) 0; transition:opacity .6s ease;">
+        <div data-rv="line" style="position:absolute; top:0; left:0; right:0; height:1px; background:currentColor; opacity:.25;"></div>
+        <span style="font-family:'Geist Mono',monospace; font-size:12px; letter-spacing:.08em;">02</span>
+        <h3 style="margin:20px 0 18px; font-size:clamp(34px,4.6vw,74px); line-height:.98; letter-spacing:-.045em; font-weight:400;">Sites institucionais</h3>
+        <p style="margin:0; max-width:470px; font-size:17px; line-height:1.6; opacity:.7; text-wrap:pretty;">Sites profissionais que apresentam sua empresa, seus serviços e facilitam o contato com novos clientes.</p>
+      <div style="margin-top:36px; max-width:580px; aspect-ratio:16/10; border-radius:14px; overflow:hidden; background:#E8E3D8; box-shadow:0 30px 60px -36px rgba(21,21,18,.35);"><img src="assets/services/institucional.png" alt="Exemplo visual de sites institucionais" loading="lazy" style="display:block; width:100%; height:100%; object-fit:cover; object-position:center top;"></div>
+      </article>
+      <article data-svc data-vis="[ visual — cardápios digitais ]" data-img="assets/services/cardapio.png" data-pos="center center" style="position:relative; padding:clamp(40px,9vh,96px) 0; transition:opacity .6s ease;">
+        <div data-rv="line" style="position:absolute; top:0; left:0; right:0; height:1px; background:currentColor; opacity:.25;"></div>
+        <span style="font-family:'Geist Mono',monospace; font-size:12px; letter-spacing:.08em;">03</span>
+        <h3 style="margin:20px 0 18px; font-size:clamp(34px,4.6vw,74px); line-height:.98; letter-spacing:-.045em; font-weight:400;">Cardápios digitais</h3>
+        <p style="margin:0; max-width:470px; font-size:17px; line-height:1.6; opacity:.7; text-wrap:pretty;">Experiências simples e bonitas para restaurantes, lanchonetes, confeitarias e outros negócios apresentarem seus produtos.</p>
+      <div style="margin-top:36px; max-width:580px; aspect-ratio:16/10; border-radius:14px; overflow:hidden; background:#E8E3D8; box-shadow:0 30px 60px -36px rgba(21,21,18,.35);"><img src="assets/services/cardapio.png" alt="Exemplo visual de cardápios digitais" loading="lazy" style="display:block; width:100%; height:100%; object-fit:cover; object-position:center center;"></div>
+      </article>
+      <article data-svc data-vis="[ visual — catálogos digitais ]" data-img="assets/services/catalogo.png" data-pos="center 30%" style="position:relative; padding:clamp(40px,9vh,96px) 0; transition:opacity .6s ease;">
+        <div data-rv="line" style="position:absolute; top:0; left:0; right:0; height:1px; background:currentColor; opacity:.25;"></div>
+        <span style="font-family:'Geist Mono',monospace; font-size:12px; letter-spacing:.08em;">04</span>
+        <h3 style="margin:20px 0 18px; font-size:clamp(34px,4.6vw,74px); line-height:.98; letter-spacing:-.045em; font-weight:400;">Catálogos digitais</h3>
+        <p style="margin:0; max-width:470px; font-size:17px; line-height:1.6; opacity:.7; text-wrap:pretty;">Uma forma organizada e profissional de apresentar produtos e direcionar clientes para o atendimento.</p>
+      <div style="margin-top:36px; max-width:580px; aspect-ratio:16/10; border-radius:14px; overflow:hidden; background:#E8E3D8; box-shadow:0 30px 60px -36px rgba(21,21,18,.35);"><img src="assets/services/catalogo.png" alt="Exemplo visual de catálogos digitais" loading="lazy" style="display:block; width:100%; height:100%; object-fit:cover; object-position:center 30%;"></div>
+      </article>
+      <article data-svc data-vis="[ visual — sistemas web ]" data-img="assets/services/sistema-web.png" data-pos="center center" style="position:relative; padding:clamp(40px,9vh,96px) 0; transition:opacity .6s ease;">
+        <div data-rv="line" style="position:absolute; top:0; left:0; right:0; height:1px; background:currentColor; opacity:.25;"></div>
+        <span style="font-family:'Geist Mono',monospace; font-size:12px; letter-spacing:.08em;">05</span>
+        <h3 style="margin:20px 0 18px; font-size:clamp(34px,4.6vw,74px); line-height:.98; letter-spacing:-.045em; font-weight:400;">Sistemas web</h3>
+        <p style="margin:0; max-width:470px; font-size:17px; line-height:1.6; opacity:.7; text-wrap:pretty;">Soluções personalizadas para necessidades que vão além de um site tradicional.</p>
+      <div style="margin-top:36px; max-width:580px; aspect-ratio:16/10; border-radius:14px; overflow:hidden; background:#E8E3D8; box-shadow:0 30px 60px -36px rgba(21,21,18,.35);"><img src="assets/services/sistema-web.png" alt="Exemplo visual de sistemas web" loading="lazy" style="display:block; width:100%; height:100%; object-fit:cover; object-position:center center;"></div>
+      </article>
+      <article data-svc data-vis="[ visual — projetos personalizados ]" data-img="assets/services/personalizado.png" data-pos="center center" style="position:relative; padding:clamp(40px,9vh,96px) 0; transition:opacity .6s ease;">
+        <div data-rv="line" style="position:absolute; top:0; left:0; right:0; height:1px; background:currentColor; opacity:.25;"></div>
+        <span style="font-family:'Geist Mono',monospace; font-size:12px; letter-spacing:.08em;">06</span>
+        <h3 style="margin:20px 0 18px; font-size:clamp(34px,4.6vw,74px); line-height:.98; letter-spacing:-.045em; font-weight:400;">Projetos <em style="font-family:'Instrument Serif',serif; font-style:italic; font-weight:400; letter-spacing:-.02em;">personalizados</em></h3>
+        <p style="margin:0 0 36px; max-width:470px; font-size:17px; line-height:1.6; opacity:.7; text-wrap:pretty;">Tem uma ideia diferente? Desenvolvemos uma solução de acordo com a necessidade do projeto.</p>
+        <a href="{{ wa }}" target="_blank" rel="noopener" style="font-size:15px; padding:4px 0; background:linear-gradient(currentColor,currentColor) 0 100% / 100% 1px no-repeat; transition:background-size .4s cubic-bezier(.16,1,.3,1);" style-hover="background-size:30% 1px;">Falar sobre minha ideia ↗</a>
+      <div style="margin-top:36px; max-width:580px; aspect-ratio:16/10; border-radius:14px; overflow:hidden; background:#E8E3D8; box-shadow:0 30px 60px -36px rgba(21,21,18,.35);"><img src="assets/services/personalizado.png" alt="Exemplo visual de projetos personalizados" loading="lazy" style="display:block; width:100%; height:100%; object-fit:cover; object-position:center center;"></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section data-statement data-sec="04 — Presença" style="padding:clamp(140px,26vh,300px) 0; overflow:hidden;">
+  <div style="max-width:1440px; margin:0 auto; padding:0 clamp(20px,4vw,56px);">
+    <span style="font-family:'Geist Mono',monospace; font-size:12px; letter-spacing:.08em; text-transform:uppercase;">— 03</span>
+    <h2 style="margin:28px 0 0; font-size:clamp(44px,7.4vw,132px); line-height:.95; letter-spacing:-.05em; font-weight:400;">
+      <span data-st1 style="display:block; will-change:transform;">Seu negócio já existe.</span>
+      <span data-st2 style="display:block; text-align:right; will-change:transform;">Agora ele precisa <em style="font-family:'Instrument Serif',serif; font-style:italic; font-weight:400; letter-spacing:-.02em;">ser encontrado.</em></span>
+    </h2>
+    <p data-rv="up" style="margin:clamp(48px,8vh,96px) 0 0 auto; max-width:400px; font-size:17px; line-height:1.6; opacity:.72; text-wrap:pretty;">Quando alguém procura pelo que você oferece, um site claro e bem feito é o que transforma essa busca em uma conversa.</p>
+  </div>
+</section>
+
+<section id="projetos" data-sec="05 — Projetos" style="padding:clamp(40px,8vh,80px) 0 clamp(80px,12vh,140px);">
+  <div style="max-width:1552px; margin:0 auto; padding:0 clamp(12px,2vw,24px);">
+    <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:flex-end; gap:24px 48px; padding:0 clamp(8px,2vw,32px) clamp(48px,8vh,96px);">
+      <div style="min-width:0;">
+        <span style="font-family:'Geist Mono',monospace; font-size:12px; letter-spacing:.08em; text-transform:uppercase;">Projetos — 04</span>
+        <h2 style="margin:24px 0 0; font-size:clamp(36px,5.2vw,88px); line-height:.98; letter-spacing:-.045em; font-weight:400;">
+          <span style="display:block; overflow:hidden; padding-bottom:.06em;"><span data-rv="mask" style="display:block;">Projetos que transformam</span></span>
+          <span style="display:block; overflow:hidden; padding-bottom:.1em;"><span data-rv="mask" data-delay="90" style="display:block; font-family:'Instrument Serif',serif; font-style:italic; letter-spacing:-.02em;">necessidades em soluções.</span></span>
+        </h2>
+      </div>
+      <span style="font-family:'Geist Mono',monospace; font-size:12px; letter-spacing:.08em; text-transform:uppercase; opacity:.7;">Estudos de caso</span>
+    </div>
+    <div style="position:relative;">
+      <sc-for list="{{ projects }}" as="p" hint-placeholder-count="2">
+        <article data-card style="position:sticky; top:88px; height:calc(100vh - 112px); min-height:540px; margin-bottom:8vh; background:#1D1E19; color:#F2EEE5; border-radius:24px; overflow:hidden; transform-origin:50% 0; display:flex; flex-direction:{{ cardDir }}; gap:clamp(14px,2vw,28px); padding:clamp(12px,1.4vw,20px); will-change:transform;">
+          <div data-card-media style="position:relative; flex:1.55 1 0; min-height:0; border-radius:14px; overflow:hidden; will-change:clip-path;">
+            <div data-card-img style="position:absolute; inset:0; background-color:#2A2B25; background-image:repeating-linear-gradient(135deg, rgba(242,238,229,.06) 0 1px, transparent 1px 12px); will-change:transform; transition:filter .6s;">
+              <div style="position:absolute; inset:0; background-image:{{ p.bg }}; background-size:cover; background-position:center top;"></div>
+            </div>
+            <span style="position:absolute; left:16px; bottom:14px; font-family:'Geist Mono',monospace; font-size:11px; letter-spacing:.06em; color:rgba(242,238,229,.75);">[ {{ p.image }} ]</span>
+          </div>
+          <div style="flex:{{ cardInfoFlex }}; display:flex; flex-direction:column; justify-content:space-between; gap:28px; padding:clamp(8px,2vw,28px) clamp(8px,1.6vw,24px);">
+            <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; font-family:'Geist Mono',monospace; font-size:12px; letter-spacing:.08em; text-transform:uppercase;">
+              <span>{{ p.num }} / {{ p.total }}</span>
+              <span style="border:1px solid rgba(242,238,229,.25); padding:6px 12px; border-radius:999px;">{{ p.category }}</span>
+            </div>
+            <div style="display:flex; flex-direction:column; gap:22px;">
+              <h3 style="margin:0; font-size:{{ cardTitle }}; line-height:.95; letter-spacing:-.05em; font-weight:400;">{{ p.title }}</h3>
+              <p style="margin:0; font-size:16px; line-height:1.6; color:rgba(242,238,229,.78); max-width:420px; text-wrap:pretty;">{{ p.description }}</p>
+              <sc-if value="{{ p.hasTech }}" hint-placeholder-val="{{ true }}">
+                <div style="padding-top:18px; border-top:1px solid rgba(242,238,229,.14); font-family:'Geist Mono',monospace; font-size:12px; letter-spacing:.04em; color:rgba(242,238,229,.8);">{{ p.tech }}</div>
+              </sc-if>
+              <sc-if value="{{ p.hasUrl }}" hint-placeholder-val="{{ false }}">
+                <a href="{{ p.url }}" target="_blank" rel="noopener" style="align-self:flex-start; font-size:15px; padding:4px 0; background:linear-gradient(currentColor,currentColor) 0 100% / 100% 1px no-repeat;">Ver projeto ↗</a>
+              </sc-if>
+            </div>
+          </div>
+          <div data-card-shade style="position:absolute; inset:0; background:#0B0B09; opacity:0; pointer-events:none;"></div>
+        </article>
+      </sc-for>
+    </div>
+    <div data-rv="up" style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:24px; padding:clamp(24px,4vh,48px) clamp(8px,2vw,32px) 0;">
+      <p style="margin:0; font-size:clamp(28px,3.4vw,52px); letter-spacing:-.04em; line-height:1.05; font-weight:300;">O próximo projeto <em style="font-family:'Instrument Serif',serif; font-style:italic; font-weight:400; letter-spacing:-.02em;">pode ser o seu.</em></p>
+      <a href="{{ wa }}" target="_blank" rel="noopener" data-mag style="display:inline-flex; align-items:center; gap:3px; transition:transform .45s cubic-bezier(.2,.8,.2,1);">
+        <span style="background:#F2EEE5; color:#151512; padding:14px 22px; border-radius:999px; font-size:15px; font-weight:500;">Falar sobre meu projeto</span>
+        <span style="width:48px; height:48px; border-radius:50%; background:#F2EEE5; color:#151512; display:grid; place-items:center; font-size:16px;">↗</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section data-why data-sec="06 — Por que ter um site" style="padding:clamp(120px,20vh,220px) 0 clamp(80px,12vh,140px);">
+  <div style="max-width:1440px; margin:0 auto; padding:0 clamp(20px,4vw,56px);">
+    <div style="display:flex; flex-wrap:wrap; align-items:center; gap:48px clamp(32px,6vw,96px);">
+      <div style="flex:1 1 440px; min-width:0;">
+        <span style="font-family:'Geist Mono',monospace; font-size:12px; letter-spacing:.08em; text-transform:uppercase;">Por que ter um site — 05</span>
+        <h2 style="margin:24px 0 28px; font-size:clamp(34px,4.4vw,72px); line-height:1; letter-spacing:-.045em; font-weight:400; text-wrap:balance;">Sua presença digital não deveria depender de <em style="font-family:'Instrument Serif',serif; font-style:italic; font-weight:400; letter-spacing:-.02em;">uma única plataforma.</em></h2>
+        <p style="margin:0; max-width:440px; font-size:17px; line-height:1.6; opacity:.72; text-wrap:pretty;">Instagram e WhatsApp são ótimos para se relacionar com clientes. Um site complementa esses canais: reúne suas informações em um endereço próprio, que trabalha por você a qualquer hora.</p>
+      </div>
+      <div style="flex:1 1 380px; max-width:580px; width:100%;">
+        <div style="position:relative; aspect-ratio:1; border-radius:24px; background:#DDE2D3; color:#151512; overflow:hidden;">
+          <div style="position:absolute; inset:30%; border:1px dashed rgba(21,21,18,.25); border-radius:50%;"></div>
+          <div data-orbit style="position:absolute; inset:13%; border:1px solid rgba(21,21,18,.28); border-radius:50%; will-change:transform;">
+            <span data-orb style="position:absolute; left:50%; top:0; transform:translate(-50%,-50%); background:#F2EEE5; padding:8px 14px; border-radius:999px; font-size:13px; white-space:nowrap;">Instagram</span>
+            <span data-orb style="position:absolute; left:93%; top:25%; transform:translate(-50%,-50%); background:#F2EEE5; padding:8px 14px; border-radius:999px; font-size:13px; white-space:nowrap;">Google</span>
+            <span data-orb style="position:absolute; left:93%; top:75%; transform:translate(-50%,-50%); background:#F2EEE5; padding:8px 14px; border-radius:999px; font-size:13px; white-space:nowrap;">WhatsApp</span>
+            <span data-orb style="position:absolute; left:50%; top:100%; transform:translate(-50%,-50%); background:#F2EEE5; padding:8px 14px; border-radius:999px; font-size:13px; white-space:nowrap;">Indicações</span>
+            <span data-orb style="position:absolute; left:7%; top:75%; transform:translate(-50%,-50%); background:#F2EEE5; padding:8px 14px; border-radius:999px; font-size:13px; white-space:nowrap;">QR Code</span>
+            <span data-orb style="position:absolute; left:7%; top:25%; transform:translate(-50%,-50%); background:#F2EEE5; padding:8px 14px; border-radius:999px; font-size:13px; white-space:nowrap;">Anúncios</span>
+          </div>
+          <div style="position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; text-align:center;">
+            <span style="font-family:'Instrument Serif',serif; font-style:italic; font-size:clamp(32px,3.4vw,48px); line-height:1;">Seu site</span>
+            <span style="font-family:'Geist Mono',monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase; opacity:.7;">Onde tudo se encontra</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:clamp(80px,14vh,160px);">
+      <div data-rv="up" style="display:flex; align-items:baseline; gap:clamp(16px,4vw,64px); padding:clamp(20px,3vh,32px) 0; border-top:1px solid rgba(21,21,18,.18);">
+        <span style="flex:0 0 32px; font-family:'Geist Mono',monospace; font-size:12px; letter-spacing:.08em;">01</span>
+        <span style="font-size:clamp(26px,3.4vw,54px); letter-spacing:-.04em; line-height:1.05; font-weight:300;">Mais credibilidade.</span>
+      </div>
+      <div data-rv="up" style="display:flex; align-items:baseline; gap:clamp(16px,4vw,64px); padding:clamp(20px,3vh,32px) 0; border-top:1px solid rgba(21,21,18,.18);">
+        <span style="flex:0 0 32px; font-family:'Geist Mono',monospace; font-size:12px; letter-spacing:.08em;">02</span>
+        <span style="font-size:clamp(26px,3.4vw,54px); letter-spacing:-.04em; line-height:1.05; font-weight:300;">Informações disponíveis a qualquer hora.</span>
+      </div>
+      <div data-rv="up" style="display:flex; align-items:baseline; gap:clamp(16px,4vw,64px); padding:clamp(20px,3vh,32px) 0; border-top:1px solid rgba(21,21,18,.18);">
+        <span style="flex:0 0 32px; font-family:'Geist Mono',monospace; font-size:12px; letter-spacing:.08em;">03</span>
+        <span style="font-size:clamp(26px,3.4vw,54px); letter-spacing:-.04em; line-height:1.05; font-weight:300;">Contato facilitado.</span>
+      </div>
+      <div data-rv="up" style="display:flex; align-items:baseline; gap:clamp(16px,4vw,64px); padding:clamp(20px,3vh,32px) 0; border-top:1px solid rgba(21,21,18,.18);">
+        <span style="flex:0 0 32px; font-family:'Geist Mono',monospace; font-size:12px; letter-spacing:.08em;">04</span>
+        <span style="font-size:clamp(26px,3.4vw,54px); letter-spacing:-.04em; line-height:1.05; font-weight:300;">Apresentação profissional dos serviços.</span>
+      </div>
+      <div data-rv="up" style="display:flex; align-items:baseline; gap:clamp(16px,4vw,64px); padding:clamp(20px,3vh,32px) 0; border-top:1px solid rgba(21,21,18,.18); border-bottom:1px solid rgba(21,21,18,.18);">
+        <span style="flex:0 0 32px; font-family:'Geist Mono',monospace; font-size:12px; letter-spacing:.08em;">05</span>
+        <span style="font-size:clamp(26px,3.4vw,54px); letter-spacing:-.04em; line-height:1.05; font-weight:300;">Um espaço digital que <em style="font-family:'Instrument Serif',serif; font-style:italic; font-weight:400; letter-spacing:-.02em;">representa sua marca.</em></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="processo" data-proc data-sec="07 — Processo" style="position:relative; height:{{ procH }};">
+  <div style="position:{{ procPos }}; top:0; height:{{ procStickyH }}; overflow:hidden; display:flex; flex-direction:column; justify-content:center; padding:clamp(80px,10vh,120px) 0;">
+    <div style="width:100%; max-width:1440px; margin:0 auto; padding:0 clamp(20px,4vw,56px);">
+      <span style="font-family:'Geist Mono',monospace; font-size:12px; letter-spacing:.08em; text-transform:uppercase;">Processo — 06</span>
+      <h2 style="margin:24px 0 0; font-size:clamp(36px,5vw,84px); line-height:.98; letter-spacing:-.045em; font-weight:400;">Do primeiro contato <em style="font-family:'Instrument Serif',serif; font-style:italic; font-weight:400; letter-spacing:-.02em;">ao site no ar.</em></h2>
+      <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
+        <div style="position:relative; height:1px; margin:clamp(40px,7vh,72px) 0 clamp(32px,5vh,48px); background:rgba(21,21,18,.18);">
+          <div data-proc-bar style="position:absolute; inset:0; background:#151512; transform-origin:left; transform:scaleX(0);"></div>
+        </div>
+      </sc-if>
+    </div>
+    <div style="width:100%; max-width:1440px; margin:0 auto; padding:0 clamp(20px,4vw,56px);">
+      <div data-proc-track style="position:relative; display:flex; flex-direction:{{ procDir }}; gap:{{ procGap }}; margin-top:{{ procTrackMt }}; will-change:transform;">
+        <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+          <div style="position:absolute; left:0; top:0; bottom:0; width:1px; background:rgba(21,21,18,.18);"></div>
+          <div data-proc-vbar style="position:absolute; left:0; top:0; bottom:0; width:1px; background:#151512; transform-origin:top; transform:scaleY(0);"></div>
+        </sc-if>
+        <div data-step style="flex:0 0 {{ procStepW }}; padding:{{ procStepPad }}; transition:opacity .5s;">
+          <span style="display:block; font-size:clamp(64px,7vw,120px); line-height:.85; letter-spacing:-.07em; font-weight:300;">01</span>
+          <h3 style="margin:24px 0 12px; font-size:28px; letter-spacing:-.03em; font-weight:400;">Conversa</h3>
+          <p style="margin:0; max-width:320px; font-size:16px; line-height:1.6; opacity:.72;">Entendemos seu negócio, objetivo e o que você precisa.</p>
+        </div>
+        <div data-step style="flex:0 0 {{ procStepW }}; padding:{{ procStepPad }}; transition:opacity .5s;">
+          <span style="display:block; font-size:clamp(64px,7vw,120px); line-height:.85; letter-spacing:-.07em; font-weight:300;">02</span>
+          <h3 style="margin:24px 0 12px; font-size:28px; letter-spacing:-.03em; font-weight:400;">Direção</h3>
+          <p style="margin:0; max-width:320px; font-size:16px; line-height:1.6; opacity:.72;">Definimos estrutura, conteúdo e direção visual.</p>
+        </div>
+        <div data-step style="flex:0 0 {{ procStepW }}; padding:{{ procStepPad }}; transition:opacity .5s;">
+          <span style="display:block; font-size:clamp(64px,7vw,120px); line-height:.85; letter-spacing:-.07em; font-weight:300;">03</span>
+          <h3 style="margin:24px 0 12px; font-size:28px; letter-spacing:-.03em; font-weight:400;">Criação</h3>
+          <p style="margin:0; max-width:320px; font-size:16px; line-height:1.6; opacity:.72;">Transformamos o planejamento em uma experiência digital.</p>
+        </div>
+        <div data-step style="flex:0 0 {{ procStepW }}; padding:{{ procStepPad }}; transition:opacity .5s;">
+          <span style="display:block; font-size:clamp(64px,7vw,120px); line-height:.85; letter-spacing:-.07em; font-weight:300;">04</span>
+          <h3 style="margin:24px 0 12px; font-size:28px; letter-spacing:-.03em; font-weight:400;">Ajustes</h3>
+          <p style="margin:0; max-width:320px; font-size:16px; line-height:1.6; opacity:.72;">Refinamos detalhes até que tudo esteja alinhado.</p>
+        </div>
+        <div data-step style="flex:0 0 {{ procStepW }}; padding:{{ procStepPad }}; transition:opacity .5s;">
+          <span style="display:block; font-size:clamp(64px,7vw,120px); line-height:.85; letter-spacing:-.07em; font-weight:300; font-family:'Instrument Serif',serif; font-style:italic;">05</span>
+          <h3 style="margin:24px 0 12px; font-size:28px; letter-spacing:-.03em; font-weight:400;">Publicação</h3>
+          <p style="margin:0; max-width:320px; font-size:16px; line-height:1.6; opacity:.72;">Colocamos o projeto no ar.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="sobre" data-sec="08 — Sobre" style="padding:clamp(100px,16vh,180px) 0 clamp(60px,10vh,120px);">
+  <div style="max-width:1440px; margin:0 auto; padding:0 clamp(20px,4vw,56px); display:flex; flex-wrap:wrap; gap:32px 48px;">
+    <div style="flex:0 0 220px; font-family:'Geist Mono',monospace; font-size:12px; letter-spacing:.08em; text-transform:uppercase; padding-top:12px;">Sobre — 07</div>
+    <div style="flex:1 1 560px; min-width:0;">
+      <p data-rv="up" style="margin:0; font-size:clamp(28px,3.4vw,54px); line-height:1.12; letter-spacing:-.04em; font-weight:300; text-wrap:pretty;">Sistemas &amp; Soluções Digitais nasce com uma ideia simples: tornar soluções digitais profissionais <em style="font-family:'Instrument Serif',serif; font-style:italic; font-weight:400; letter-spacing:-.02em;">mais acessíveis</em> para negócios que querem crescer.</p>
+      <div style="display:flex; flex-wrap:wrap; gap:24px 48px; margin-top:clamp(40px,7vh,72px);">
+        <p data-rv="up" style="flex:1 1 280px; margin:0; font-size:17px; line-height:1.6; opacity:.72; text-wrap:pretty;">Unimos desenvolvimento, design e estratégia para criar projetos que fazem sentido para quem está do outro lado da tela.</p>
+        <p data-rv="up" data-delay="120" style="flex:1 1 280px; margin:0; font-size:17px; line-height:1.6; opacity:.72; text-wrap:pretty;">Cada projeto é construído em conversa direta com quem mais conhece o negócio: você.</p>
+      </div>
+    </div>
+  </div>
+  <div data-tech-wrap style="margin-top:clamp(80px,14vh,160px); border-top:1px solid rgba(21,21,18,.18); border-bottom:1px solid rgba(21,21,18,.18); overflow:hidden;">
+    <div style="display:flex; align-items:center; gap:clamp(20px,3vw,48px); padding:22px clamp(20px,4vw,56px); white-space:nowrap;">
+      <span style="flex:0 0 auto; font-family:'Geist Mono',monospace; font-size:12px; letter-spacing:.08em; text-transform:uppercase;">Construímos com</span>
+      <div data-tech style="display:flex; gap:clamp(20px,3vw,48px); font-size:clamp(20px,2.2vw,32px); letter-spacing:-.03em; font-weight:300; will-change:transform;">
+        <span>React</span><span style="opacity:.35;">/</span><span>Java</span><span style="opacity:.35;">/</span><span>Spring Boot</span><span style="opacity:.35;">/</span><span>JavaScript</span><span style="opacity:.35;">/</span><span>PostgreSQL</span><span style="opacity:.35;">/</span><span>Tailwind CSS</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contato" data-sec="09 — Contato" style="padding-top:clamp(40px,8vh,100px);">
+  <div data-cta-panel style="background:#121310; color:#F2EEE5; clip-path:inset(0 48px round 32px 32px 0 0); padding-top:clamp(110px,20vh,220px); will-change:clip-path;">
+    <div style="max-width:1440px; margin:0 auto; padding:0 clamp(20px,4vw,56px);">
+      <span style="font-family:'Geist Mono',monospace; font-size:12px; letter-spacing:.08em; text-transform:uppercase;">Tem um projeto em mente?</span>
+      <h2 style="margin:32px 0 0; font-size:clamp(46px,8.6vw,156px); line-height:.92; letter-spacing:-.055em; font-weight:400;">
+        <span style="display:block; overflow:hidden; padding-bottom:.04em;"><span data-rv="mask" style="display:block;">Vamos transformar</span></span>
+        <span style="display:block; overflow:hidden; padding-bottom:.04em;"><span data-rv="mask" data-delay="80" style="display:block;">essa ideia</span></span>
+        <span style="display:block; overflow:hidden; padding-bottom:.12em;"><span data-rv="mask" data-delay="160" style="display:block; font-family:'Instrument Serif',serif; font-style:italic; letter-spacing:-.025em;">em algo real.</span></span>
+      </h2>
+      <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:flex-end; gap:40px; margin-top:clamp(48px,8vh,88px);">
+        <p data-rv="up" style="margin:0; max-width:420px; font-size:18px; line-height:1.6; color:rgba(242,238,229,.78); text-wrap:pretty;">Conte um pouco sobre o que você precisa e vamos conversar sobre a melhor solução para o seu negócio.</p>
+        <div data-rv="up" data-delay="120" style="display:flex; flex-direction:column; gap:16px; align-items:flex-start;">
+          <a href="{{ wa }}" target="_blank" rel="noopener" data-mag style="display:inline-flex; align-items:center; gap:4px; transition:transform .45s cubic-bezier(.2,.8,.2,1);">
+            <span style="background:#F2EEE5; color:#151512; padding:clamp(18px,2.4vw,26px) clamp(24px,3vw,40px); border-radius:999px; font-size:clamp(14px,1.2vw,17px); font-weight:500; letter-spacing:.06em; text-transform:uppercase;">Falar sobre meu projeto</span>
+            <span style="width:clamp(56px,5.4vw,76px); height:clamp(56px,5.4vw,76px); border-radius:50%; background:#F2EEE5; color:#151512; display:grid; place-items:center; font-size:20px;">↗</span>
+          </a>
+          <span style="font-family:'Geist Mono',monospace; font-size:12px; letter-spacing:.06em; color:rgba(242,238,229,.7);">Atendimento pelo WhatsApp · {{ phoneLabel }}</span>
+        </div>
+      </div>
+    </div>
+    <footer style="max-width:1440px; margin:clamp(120px,20vh,220px) auto 0; padding:0 clamp(20px,4vw,56px) 28px;">
+      <div style="display:flex; flex-wrap:wrap; justify-content:space-between; gap:40px; padding-top:40px; border-top:1px solid rgba(242,238,229,.14);">
+        <div style="flex:1 1 280px; display:flex; flex-direction:column; font-size:clamp(22px,2vw,28px); line-height:1.05; letter-spacing:-.03em;">
+          <span>Sistemas <span style="font-family:'Instrument Serif',serif; font-style:italic;">&amp;</span></span>
+          <span>Soluções Digitais</span>
+        </div>
+        <nav aria-label="Rodapé" style="flex:0 1 180px; display:flex; flex-direction:column; gap:10px; font-size:15px;">
+          <span style="font-family:'Geist Mono',monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:rgba(242,238,229,.6); margin-bottom:6px;">Navegação</span>
+          <a href="#inicio">Início</a><a href="#solucoes">Soluções</a><a href="#projetos">Projetos</a><a href="#processo">Processo</a><a href="#contato">Contato</a>
+        </nav>
+        <div style="flex:0 1 220px; display:flex; flex-direction:column; gap:10px; font-size:15px;">
+          <span style="font-family:'Geist Mono',monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:rgba(242,238,229,.6); margin-bottom:6px;">Contato</span>
+          <a href="{{ wa }}" target="_blank" rel="noopener">WhatsApp ↗</a>
+          <a href="{{ linkedin }}" target="_blank" rel="noopener">LinkedIn ↗</a>
+          <a href="{{ instagram }}" target="_blank" rel="noopener">Instagram ↗</a>
+          <a href="{{ email }}">{{ emailLabel }}</a>
+        </div>
+      </div>
+      <div style="display:flex; flex-wrap:wrap; justify-content:space-between; gap:12px; margin-top:72px; font-family:'Geist Mono',monospace; font-size:11px; letter-spacing:.06em; color:rgba(242,238,229,.6);">
+        <span>© 2026 Sistemas &amp; Soluções Digitais.</span>
+        <a href="#inicio">Voltar ao topo ↑</a>
+      </div>
+    </footer>
+  </div>
+</section>
+
+<sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
+  <div data-indicator aria-hidden="true" style="position:fixed; left:clamp(20px,2.4vw,32px); bottom:24px; z-index:40; mix-blend-mode:difference; color:#F2EEE5; font-family:'Geist Mono',monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase; pointer-events:none;">01 — Início</div>
+</sc-if>
+
+<a data-wa-float href="{{ wa }}" target="_blank" rel="noopener" aria-label="Conversar pelo WhatsApp" style="position:fixed; right:clamp(16px,2vw,28px); bottom:clamp(16px,2vw,24px); z-index:45; display:flex; align-items:center; gap:10px; padding:11px 18px 11px 14px; border-radius:999px; background:#151512; color:#F2EEE5; border:1px solid rgba(242,238,229,.14); font-size:14px; box-shadow:0 16px 40px -16px rgba(0,0,0,.5); opacity:0; transform:translateY(16px); visibility:hidden; transition:opacity .5s, transform .6s cubic-bezier(.16,1,.3,1), visibility .5s;">
+  <span style="width:8px; height:8px; border-radius:50%; background:#7FBF7A; box-shadow:0 0 0 4px rgba(127,191,122,.18);"></span>
+  <span>WhatsApp</span>
+</a>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+// ===== Configuração de contato (altere aqui) =====
+const CONTACT = {
+  whatsappNumber: '553184302423', // +55 31 8430-2423 (só dígitos)
+  whatsappMessage: 'Olá! Conheci a Sistemas & Soluções Digitais pelo site e gostaria de conversar sobre a criação de um projeto para o meu negócio.',
+  phoneLabel: '+55 31 8430-2423',
+  email: 'contato@seudominio.com.br', // placeholder
+  instagram: '', // ex: https://instagram.com/seuperfil
+  linkedin: ''   // ex: https://linkedin.com/company/suaempresa
+};
+
+// ===== Projetos (adicione novos objetos aqui) =====
+const PROJECTS = [
+  {
+    title: 'Gestor NF',
+    category: 'Sistema Web',
+    description: 'Plataforma desenvolvida para facilitar o gerenciamento de notas fiscais, vendedores, clientes e resultados de um negócio real.',
+    image: 'assets/projects/gestornf-dashboard.png',
+    technologies: ['Java', 'Spring Boot', 'React', 'PostgreSQL'],
+    url: ''
+  },
+  {
+    title: 'Doces da Lê',
+    category: 'Site / Vitrine Digital',
+    description: 'Experiência digital desenvolvida para apresentar produtos feitos sob encomenda e facilitar o contato com clientes.',
+    image: 'assets/projects/doces-da-le-cover.png',
+    technologies: [],
+    url: ''
+  }
+];
+
+const cl = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+const lr = (a, b, t) => a + (b - a) * t;
+const ez = t => 1 - Math.pow(1 - t, 3);
+const mix = (c1, c2, t) => `rgb(${c1.map((v, i) => Math.round(lr(v, c2[i], t))).join(',')})`;
+const CREAM = [242, 238, 229], DARK = [18, 19, 16], INK = [21, 21, 18];
+
+class Component extends DCLogic {
+  state = { menuOpen: false, isMobile: typeof window !== 'undefined' && window.innerWidth < 860 };
+  rootRef = React.createRef();
+
+  componentDidMount() {
+    this.reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    this.fine = window.matchMedia('(pointer: fine)').matches;
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    window.addEventListener('resize', this.onResize);
+    if (this.fine) window.addEventListener('pointermove', this.onPointer, { passive: true });
+    this.onResize();
+    this.setupReveals();
+    this.tick();
+    if (document.fonts) document.fonts.ready.then(() => { this.measure(); this.tick(); });
+  }
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.onScroll);
+    window.removeEventListener('resize', this.onResize);
+    window.removeEventListener('pointermove', this.onPointer);
+  }
+  componentDidUpdate(pp, ps) {
+    if (ps.isMobile !== this.state.isMobile) { this.svcActive = null; this.navKey = null; requestAnimationFrame(() => { this.measure(); this.tick(); }); }
+  }
+  $ = s => this.rootRef.current ? this.rootRef.current.querySelector(s) : null;
+  $$ = s => this.rootRef.current ? Array.from(this.rootRef.current.querySelectorAll(s)) : [];
+
+  onResize = () => {
+    const m = window.innerWidth < 860;
+    if (m !== this.state.isMobile) this.setState({ isMobile: m });
+    this.measure(); this.tick();
+  };
+  onScroll = () => {
+    if (this.raf) return;
+    this.raf = requestAnimationFrame(() => { this.raf = null; this.tick(); });
+  };
+  onPointer = e => {
+    if (this.state.isMobile || this.reduce) return;
+    this.$$('[data-mag]').forEach(el => {
+      const r = el.getBoundingClientRect();
+      const dx = e.clientX - (r.left + r.width / 2), dy = e.clientY - (r.top + r.height / 2);
+      const near = Math.abs(dx) < r.width / 2 + 30 && Math.abs(dy) < r.height / 2 + 30;
+      el.style.transform = near ? `translate(${dx * 0.12}px, ${dy * 0.2}px)` : '';
+    });
+  };
+
+  measure() {
+    const s = this.$('[data-hero-sticky]'), slot = this.$('[data-hero-slot]');
+    if (s && slot) {
+      const a = s.getBoundingClientRect(), b = slot.getBoundingClientRect();
+      const txt = this.$('[data-hero-text]');
+      const textBottom = txt ? txt.getBoundingClientRect().bottom - a.top : 0;
+      const need = textBottom + 16 + 120 + 14;
+      if (need > a.height) { s.style.height = need + 'px'; }
+      else if (s.style.height && a.height > window.innerHeight) { s.style.height = ''; requestAnimationFrame(() => { this.measure(); this.tick(); }); return; }
+      const a2 = s.getBoundingClientRect(), b2 = slot.getBoundingClientRect();
+      const bottom = Math.max(14, a2.bottom - b2.bottom);
+      const top = Math.max(textBottom + 16, Math.min(b2.top - a2.top, a2.height - bottom - 120));
+      this.heroBox = { top, left: b2.left - a2.left, right: a2.right - b2.right, bottom };
+      this.$$('[data-hero-float]').forEach(el => {
+        el.style.pointerEvents = 'none';
+        const naturalTop = (b2.top - a2.top) + el.offsetTop;
+        el.__base = Math.max(0, textBottom + 12 - naturalTop);
+      });
+    }
+  }
+
+  setupReveals() {
+    if (this.reduce) { this.rvs = []; return; }
+    const vh = window.innerHeight;
+    this.rvs = this.$$('[data-rv]').filter(el => el.getBoundingClientRect().top > vh * 0.92);
+    this.rvs.forEach(el => {
+      const t = el.getAttribute('data-rv');
+      el.style.transition = 'transform 1.2s cubic-bezier(.16,1,.3,1), opacity 1s ease';
+      const d = el.getAttribute('data-delay'); if (d) el.style.transitionDelay = d + 'ms';
+      if (t === 'mask') el.style.transform = 'translateY(105%)';
+      else if (t === 'line') { el.style.transformOrigin = 'left'; el.style.transform = 'scaleX(0)'; }
+      else { el.style.transform = 'translateY(36px)'; el.style.opacity = '0'; }
+      el.__hidden = true;
+    });
+  }
+
+  tick() {
+    const root = this.rootRef.current; if (!root) return;
+    const vh = window.innerHeight, R = this.reduce, M = this.state.isMobile;
+
+    (this.rvs || []).forEach(el => {
+      if (el.__hidden && el.getBoundingClientRect().top < vh * 0.88) {
+        el.__hidden = false; el.style.transform = 'none'; el.style.opacity = '1';
+      }
+    });
+
+    // Hero: capa se expande até ocupar a tela
+    let heroP = 0, heroBottom = 0;
+    const hero = this.$('[data-hero]');
+    if (hero) {
+      const r = hero.getBoundingClientRect(); heroBottom = r.bottom;
+      heroP = cl(-r.top / (vh * 0.85));
+      const t = R ? 0 : ez(heroP), hb = this.heroBox;
+      const card = this.$('[data-hero-card]');
+      if (card && hb) card.style.clipPath = `inset(${lr(hb.top, 0, t)}px ${lr(hb.right, 0, t)}px ${lr(hb.bottom, 0, t)}px ${lr(hb.left, 0, t)}px round ${lr(20, 0, t)}px)`;
+      const media = this.$('[data-hero-media]'); if (media) media.style.transform = `scale(${1 + 0.08 * t})`;
+      const txt = this.$('[data-hero-text]'); if (txt) { txt.style.transform = `translateY(${-t * 90}px)`; txt.style.opacity = String(1 - cl(t * 1.5)); }
+      this.$$('[data-hero-float]').forEach(el => {
+        const s = +el.dataset.speed || 1;
+        el.style.transform = `translateY(${(el.__base || 0) - t * 220 * s}px) rotate(${(+el.dataset.rot || 0) * (1 + t)}deg)`;
+        el.style.opacity = String(1 - cl(t * 1.7));
+      });
+      const cap = this.$('[data-hero-cap]');
+      if (cap) { const c = R ? 0 : cl((t - 0.55) / 0.35); cap.style.opacity = String(c); cap.style.transform = `translateY(${(1 - c) * 30}px)`; }
+    }
+
+    // Intro: palavras acendem
+    const intro = this.$('[data-intro]');
+    if (intro) {
+      const r = intro.getBoundingClientRect();
+      const p = R ? 1 : cl((vh * 0.82 - r.top) / (vh * 0.5));
+      const ws = this.$$('[data-w]'), n = ws.length;
+      ws.forEach((w, i) => { w.style.opacity = String(lr(0.16, 1, cl(p * n - i))); });
+    }
+
+    // Soluções: serviço ativo
+    const items = this.$$('[data-svc]');
+    if (items.length) {
+      let best = 0, bd = 1e9;
+      items.forEach((el, i) => { const r = el.getBoundingClientRect(); const d = Math.abs(r.top + r.height / 2 - vh * 0.5); if (d < bd) { bd = d; best = i; } });
+      if (best !== this.svcActive) {
+        this.svcActive = best;
+        
+        const num = this.$('[data-svc-num]');
+        if (num) { num.textContent = String(best + 1).padStart(2, '0'); if (!R && num.animate) num.animate([{ transform: 'translateY(60%)', opacity: 0 }, { transform: 'none', opacity: 1 }], { duration: 600, easing: 'cubic-bezier(.16,1,.3,1)' }); }
+        const vis = this.$('[data-svc-vis]'); if (vis) vis.textContent = items[best].dataset.vis;
+        const im = this.$('[data-svc-img]');
+        if (im) { const src = items[best].dataset.img; im.style.backgroundImage = src ? 'url(' + src + ')' : 'none'; im.style.backgroundPosition = items[best].dataset.pos || 'center'; if (!R && im.animate) im.animate([{ opacity: 0, transform: 'scale(1.04)' }, { opacity: 1, transform: 'none' }], { duration: 700, easing: 'cubic-bezier(.16,1,.3,1)' }); }
+        const bar = this.$('[data-svc-bar]'); if (bar) bar.style.transform = `scaleY(${(best + 1) / items.length})`;
+      }
+    }
+
+    // Fundo claro → escuro → claro
+    let dark = 0;
+    const st = this.$('[data-statement]'), why = this.$('[data-why]');
+    if (st && why) {
+      const a = st.getBoundingClientRect(), b = why.getBoundingClientRect();
+      const d1 = cl((vh * 0.75 - a.top) / (vh * 0.5)), d2 = cl((vh * 0.8 - b.top) / (vh * 0.5));
+      dark = d1 * (1 - d2);
+      const tt = R ? 1 : ez(cl((vh - a.top) / (vh * 1.1)));
+      const s1 = this.$('[data-st1]'), s2 = this.$('[data-st2]');
+      if (s1) s1.style.transform = `translateX(${(1 - tt) * -10}vw)`;
+      if (s2) s2.style.transform = `translateX(${(1 - tt) * 10}vw)`;
+      const p = cl((vh - b.top) / (vh + b.height));
+      const deg = R ? 0 : lr(-35, 35, p);
+      const ring = this.$('[data-orbit]'); if (ring) ring.style.transform = `rotate(${deg}deg)`;
+      this.$$('[data-orb]').forEach(l => { l.style.transform = `translate(-50%,-50%) rotate(${-deg}deg)`; });
+    }
+    if (this.lastDark !== dark) {
+      this.lastDark = dark;
+      root.style.backgroundColor = mix(CREAM, DARK, dark);
+      root.style.color = mix(INK, CREAM, dark);
+    }
+
+    // Projetos: cards empilhados
+    const cards = this.$$('[data-card]');
+    cards.forEach((c, i) => {
+      const next = cards[i + 1]; let k = 0;
+      if (next) k = cl(1 - (next.getBoundingClientRect().top - 90) / (vh * 0.9));
+      if (!R) c.style.transform = `scale(${1 - k * 0.06})`;
+      const sh = c.querySelector('[data-card-shade]'); if (sh) sh.style.opacity = String(k * 0.6);
+      const r = c.getBoundingClientRect();
+      const rv = R ? 1 : ez(cl((vh - r.top) / (vh * 0.75)));
+      const media = c.querySelector('[data-card-media]'), img = c.querySelector('[data-card-img]');
+      if (media) media.style.clipPath = `inset(${(1 - rv) * 40}% 0 0 0 round 14px)`;
+      if (img) img.style.transform = `scale(${1.18 - 0.18 * rv})`;
+    });
+
+    // Processo: horizontal no desktop, linha vertical no celular
+    const proc = this.$('[data-proc]');
+    if (proc) {
+      const r = proc.getBoundingClientRect(), track = this.$('[data-proc-track]');
+      const steps = this.$$('[data-step]');
+      if (!M) {
+        const p = cl(-r.top / Math.max(1, r.height - vh));
+        if (track) { const max = Math.max(0, track.scrollWidth - track.parentElement.clientWidth + 40); track.style.transform = `translateX(${-max * p}px)`; }
+        const bar = this.$('[data-proc-bar]'); if (bar) bar.style.transform = `scaleX(${p})`;
+        steps.forEach((s, i) => { s.style.opacity = p >= i / steps.length - 0.02 ? '1' : '0.3'; });
+      } else {
+        if (track) track.style.transform = 'none';
+        const p = cl((vh * 0.6 - r.top) / r.height);
+        const vb = this.$('[data-proc-vbar]'); if (vb) vb.style.transform = `scaleY(${p})`;
+        steps.forEach(s => { s.style.opacity = '1'; });
+      }
+    }
+
+    // Faixa de tecnologias
+    const tw = this.$('[data-tech-wrap]'), tech = this.$('[data-tech]');
+    if (tw && tech && !R) { const r = tw.getBoundingClientRect(); const p = cl((vh - r.top) / (vh + r.height)); tech.style.transform = `translateX(${lr(4, -12, p)}%)`; }
+
+    // CTA final: painel abre
+    let ctaTop = 1e9;
+    const cta = this.$('[data-cta-panel]');
+    if (cta) {
+      const r = cta.getBoundingClientRect(); ctaTop = r.top;
+      const t = R ? 1 : ez(cl((vh - r.top) / (vh * 0.8)));
+      const ins = lr(M ? 12 : 48, 0, t), rad = lr(32, 0, t);
+      cta.style.clipPath = `inset(0 ${ins}px 0 ${ins}px round ${rad}px ${rad}px 0 0)`;
+    }
+
+    // Navbar
+    const scrolled = window.scrollY > 30;
+    const navDark = (heroP > 0.6 && heroBottom > 60) || dark > 0.5 || ctaTop < 40;
+    const key = `${scrolled}-${navDark}-${M}`;
+    if (key !== this.navKey) {
+      this.navKey = key;
+      const pill = this.$('[data-nav-pill]');
+      if (pill) {
+        pill.style.maxWidth = scrolled && !M ? '1080px' : '1440px';
+        pill.style.backgroundColor = scrolled ? (navDark ? 'rgba(30,31,26,.72)' : 'rgba(250,248,243,.74)') : 'transparent';
+        pill.style.backdropFilter = pill.style.webkitBackdropFilter = scrolled ? 'blur(14px) saturate(140%)' : 'none';
+        pill.style.borderColor = scrolled ? (navDark ? 'rgba(242,238,229,.12)' : 'rgba(21,21,18,.08)') : 'transparent';
+        pill.style.padding = scrolled ? '7px 7px 7px 20px' : '10px 0';
+        pill.style.color = navDark ? '#F2EEE5' : '#151512';
+      }
+      this.$$('[data-nav-cta]').forEach(el => { el.style.background = navDark ? '#F2EEE5' : '#151512'; el.style.color = navDark ? '#151512' : '#F2EEE5'; });
+    }
+
+    // Indicador de seção
+    const ind = this.$('[data-indicator]');
+    if (ind) {
+      let cur = null;
+      this.$$('[data-sec]').forEach(s => { if (s.getBoundingClientRect().top < vh * 0.5) cur = s; });
+      const label = cur ? cur.dataset.sec : '01 — Início';
+      if (ind.textContent !== label) ind.textContent = label;
+      const vis = heroP > 0.6 ? '1' : '0';
+      if (ind.style.opacity !== vis) { ind.style.transition = 'opacity .4s'; ind.style.opacity = vis; }
+    }
+
+    // WhatsApp flutuante
+    const fl = this.$('[data-wa-float]');
+    if (fl) {
+      const show = heroP > 0.6 && ctaTop > vh * 0.55;
+      if (show !== this.waShow) {
+        this.waShow = show;
+        fl.style.opacity = show ? '1' : '0';
+        fl.style.transform = show ? 'none' : 'translateY(16px)';
+        fl.style.visibility = show ? 'visible' : 'hidden';
+      }
+    }
+  }
+
+  renderVals() {
+    const M = this.state.isMobile;
+    const wa = `https://wa.me/${CONTACT.whatsappNumber}?text=${encodeURIComponent(CONTACT.whatsappMessage)}`;
+    const n = PROJECTS.length;
+    return {
+      rootRef: this.rootRef,
+      wa,
+      phoneLabel: CONTACT.phoneLabel,
+      email: 'mailto:' + CONTACT.email,
+      emailLabel: CONTACT.email,
+      instagram: CONTACT.instagram || '#',
+      linkedin: CONTACT.linkedin || '#',
+      projects: PROJECTS.map((p, i) => ({
+        ...p,
+        num: String(i + 1).padStart(2, '0'),
+        total: String(n).padStart(2, '0'),
+        bg: `url(${p.image})`,
+        hasTech: p.technologies.length > 0,
+        tech: p.technologies.join('  •  '),
+        hasUrl: !!p.url
+      })),
+      menuOpen: this.state.menuOpen,
+      openMenu: () => this.setState({ menuOpen: true }),
+      closeMenu: () => this.setState({ menuOpen: false }),
+      isDesktop: !M,
+      isMobile: M,
+      heroBrowser: M ? 'none' : 'block',
+      phoneRight: M ? '8%' : 'calc(5% + clamp(240px,30vw,470px) - 44px)',
+      phoneTop: M ? '-34px' : '4px',
+      svcPos: M ? 'relative' : 'sticky',
+      cardDir: M ? 'column' : 'row',
+      cardInfoFlex: M ? '0 0 auto' : '1 1 0',
+      cardTitle: M ? '40px' : 'clamp(44px,5.2vw,92px)',
+      procH: M ? 'auto' : '340vh',
+      procPos: M ? 'relative' : 'sticky',
+      procStickyH: M ? 'auto' : '100vh',
+      procDir: M ? 'column' : 'row',
+      procGap: M ? '56px' : '0px',
+      procTrackMt: M ? '56px' : '0px',
+      procStepW: M ? 'auto' : 'clamp(300px,30vw,460px)',
+      procStepPad: M ? '0 0 0 28px' : '0 clamp(24px,4vw,64px) 0 0'
+    };
+  }
+}
+</script>
+</body>
+</html>
